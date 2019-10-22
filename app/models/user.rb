@@ -7,6 +7,6 @@ class User < ApplicationRecord
 	has_many :asignees, through: :task_assignees
     
     has_many :task_assigners, foreign_key: :assignee_id, class_name: "User"
-    has many :assigners, through: :task_assigners
+    has_many :assigners, through: :task_assigners
 
 end
