@@ -10,13 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_184925) do
+ActiveRecord::Schema.define(version: 2019_10_22_222346) do
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer "assigner_id"
+    t.integer "assignee_id"
+    t.string "title"
+    t.string "category"
+    t.string "status"
+    t.string "priority"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
 end
