@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  assigner_id: 1
+  assignee_id: 1
+  title: MyString
+  category: MyString
+  status: MyString
+  priority: MyString
+  content: MyString
+
+two:
+  assigner_id: 1
+  assignee_id: 1
+  title: MyString
+  category: MyString
+  status: MyString
+  priority: MyString
+  content: MyString
