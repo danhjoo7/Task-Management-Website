@@ -1,0 +1,16 @@
+<h1><%= @task.title %></h1>
+
+<ul>
+    <li> Assignee: <%= link_to @task.assignee.name, user_path(@task.assignee) %></li>
+    <li> Category: <%= @task.category %></li>
+    <li> Status: <%= @task.status %></li>
+    <li> Priority: <%= @task.priority %></li>
+</ul>
+
+    <b><p>Description:</b> <%= @task.content %></p>
+<%= form_tag edit_task_path(@task), method: "get" do %>
+    <%= submit_tag "Edit #{@task.title}" %>
+<% end %>
+<%= form_tag task_path(@task), method: "delete" do %>
+    <%= submit_tag "Delete #{@task.title}" %>
+<% end %>

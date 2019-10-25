@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_222346) do
+ActiveRecord::Schema.define(version: 2019_10_24_221859) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "name"
+    t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "task_id"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.integer "assigner_id"
@@ -20,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_222346) do
     t.string "status"
     t.string "priority"
     t.string "content"
-    t.datetime "created_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6, null: falseta
     t.datetime "updated_at", precision: 6, null: false
   end
 

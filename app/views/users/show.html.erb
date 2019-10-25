@@ -1,1 +1,15 @@
-<h1>Welcome, <%= @user.username %></h1>
+<h2>Welcome, <%= @user.name %>! Here is the list of your to-do tasks:</h2>
+
+<ul>
+    <% @assigned_tasks.each do |task| %>
+      <li>Task: <%= link_to task.title, task_path(task) %></li>
+    <% end %>
+</ul>
+
+<%if  logged_in? %>
+      <%= link_to "Logout", logout_path, method: :delete %>
+    <% else %>
+      <%= link_to "Login", login_path %>
+<% end %>
+
+
