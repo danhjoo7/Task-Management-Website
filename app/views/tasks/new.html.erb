@@ -15,7 +15,9 @@
   </div>
 <% end %>
 
+
 <%= form_for(@task) do |f|%>
+    <%= f.hidden_field :assigner_id, value: @task.assigner_id %>
     <%= f.label :assignee %>
     <%= f.collection_select(:assignee_id, User.all, :id, :name) %><br>
     <%= f.label :title %>
@@ -34,4 +36,6 @@
 
 
 
-    
+
+
+

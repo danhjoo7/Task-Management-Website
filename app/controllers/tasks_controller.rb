@@ -7,13 +7,16 @@ class TasksController < ApplicationController
     
     def new
         @task = Task.new
+        @task.assigner_id = current_user.id
+        # byebug
     end
 
     def create
-        byebug
-        @task = Task.new(task_params(:assignee_id, :title, :category, :priority, :content))
+
+        @task = Task.new(task_params)
         if @task.valid?
             @task.save
+            flash[:notice] = "Task successfully created!"
             redirect_to task_path(@task)
         else
             render :new
@@ -31,7 +34,7 @@ class TasksController < ApplicationController
     def update
         # byebug
         @task = Task.find(params[:id])
-        @task.update(task_params(:title, :category, :status, :priority, :description))
+        @task.update(task_params)
         if @task.valid?
             redirect_to task_path(@task)
         else
@@ -47,7 +50,7 @@ class TasksController < ApplicationController
 
     private
     
-    def task_params(*args)
-        params.require(:task).permit(*args)
+    def task_params
+        params.require(:task).permit(:assigner_id, :assignee_id, :title, :category, :priority, :content)
     end
 end
