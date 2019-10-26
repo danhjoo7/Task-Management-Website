@@ -6,6 +6,8 @@ class Task < ApplicationRecord
      
     validates :assignee_id, :title, :content, presence: true
     validates :title, uniqueness: true
+
+    after_initialize :task_status
     
     
     def self.show_user_assigned_tasks(user)
@@ -13,5 +15,9 @@ class Task < ApplicationRecord
     end
 
     private
+
+    def task_status
+        self.status ||= "Not started"
+    end
 
 end
